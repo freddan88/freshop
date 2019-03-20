@@ -90,28 +90,43 @@ a, a:link, a:hover, a:visited, hr{
     display: block;
 }
 
-.product-module__price{
+.product-module__price, .product-price{
     color: red;
     padding-top: 3px;
 
 }
 
-.main-content__product{
+.product-description-section{
     display: flex;
     justify-content: space-around;
     margin-top: 50px;
 }
 
-.main-content__product div{
+.product-description-section div{
     flex: 1;
 }
 
-.main-content__product img{
-    width: 100%;
+.product-description-section img{
+    max-width: 300px;
     height: auto;
+    display: block;
+    margin: 0 auto;
     display: block;
 }
 
 .main-header nav a{
     color: whitesmoke;
+}
+
+.product_desc{
+    font-style: italic;
+}
+
+.cta-buyBtn{
+    margin: 25px 0;
+    padding: 5px 15px;
+    cursor: pointer;
+    background-color: #E34D3A;
+    font-weight: bold;
+    outline: none;
 }

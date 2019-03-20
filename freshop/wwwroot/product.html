@@ -25,15 +25,46 @@
     </header>
     
     <main class="main-content main-content__product">
+        
+        <section class="product-description-section">
 
-        <div>
-            <img id="product_image" src="#" alt="Product">
-        </div>
+            <div>
+                <img id="product_image" src="#" alt="Product">
+            </div>
 
-        <div>
-            <p>Test!!!</p>
-            <button>Buy</button>
-        </div>
+            <div>
+                <small id="product_desc"></small>
+                <hr />
+                <div class="product_desc">( Model: <span id="model"></span> )</div>
+                <br / >
+                <div>Brand: <span id="brand"></span></div>
+
+                <div>PN: <span id="artnr"></span></div>
+                <br />
+                <hr />
+                <strong class="product-price">Price: $<span id="price"></span></strong>
+                <br />
+                <button class="cta-buyBtn">Buy</button>
+            </div>
+
+        </section>
+
+        <br />
+        <table>
+            <thead>
+                <tr><th>Specifications:</th></tr>
+            </thead>
+            <tbody id="spec-info">
+                <tr>
+                    <td>January</td>
+                    <td>$100</td>
+                </tr>
+                <tr>
+                    <td>February</td>
+                    <td>$80</td>
+                </tr>
+            </tbody>
+        </table>
     </main>
 
     <script src="./assets/product.js" type="text/javascript"></script>
