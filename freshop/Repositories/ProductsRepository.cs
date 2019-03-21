@@ -36,7 +36,7 @@ namespace freshop.Repositories
         {
             using (SQLiteConnection connection = new SQLiteConnection(this.connectionString))
             {
-                return connection.Query<Products>("SELECT * FROM products WHERE pn = @key OR category = @key", new { key }).ToList();
+                return connection.Query<Products>("SELECT * FROM products WHERE id = @key OR pn = @key OR category = @key", new { key }).ToList();
             }
         }
 

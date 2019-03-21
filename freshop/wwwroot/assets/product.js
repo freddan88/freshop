@@ -1,5 +1,8 @@
 const pageUrl = document.URL;
-const queryString = pageUrl.split('=')[1].toUpperCase();
+const queryString = pageUrl.split('=')[2];
+const specsTable = document.getElementById('specs-data');
+const wantedQTY = document.getElementById('wanted-qty');
+const form = document.forms[0];
 
 const productImage = document.getElementById('product_image');
 const productDesc = document.getElementById('product_desc');
@@ -7,11 +10,11 @@ const artnr = document.getElementById('artnr');
 const brand = document.getElementById('brand');
 const price = document.getElementById('price');
 const model = document.getElementById('model');
+const stock = document.getElementById('inStock');
 
 fetch('http://localhost:63492/api/products/'+queryString)
     .then(response => response.json())
     .then(json => {
-        console.log(json);
         productImage.attributes.src.value='./assets/images/'+json[0].img
         productDesc.textContent = json[0].desc
         model.textContent = json[0].model
@@ -19,4 +22,49 @@ fetch('http://localhost:63492/api/products/'+queryString)
         artnr.textContent = json[0].pn
         brand.textContent = json[0].brand
         price.textContent = json[0].price
+
+        price.textContent = json[0].price
+        stock.textContent = json[0].qty
+
+        wantedQTY.attributes.max.value = json[0].qty
+        wantedQTY.nextElementSibling.attributes.value.value = json[0].qty
+
+        const specs = json[0].specs.split(",");
+        specs.forEach(spec => {
+    
+        let output = `
+            <tr>
+                <td>${spec.trim()}</td>
+            </tr>
+            `
+            specsTable.innerHTML += output;
+        });
     });
+    
+    form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    const wantedQTY = document.getElementById('wanted-qty');
+    const productId = document.getElementById('product_id');
+    
+    (async () => {
+    await fetch('http://localhost:63492/api/myGuid')
+        .then(response => response.json())
+        .then(json => {
+            let myGuid = json;
+            let hasGuid = sessionStorage.getItem("freshop-guid");
+            
+            if (hasGuid == null) {
+                sessionStorage.setItem("freshop-guid", myGuid);
+            }
+            
+            myGuid = sessionStorage.getItem("freshop-guid");
+            const buyQTY = wantedQTY.value;
+            const pordID = productId.value;
+
+            const obj = { cart_guid: myGuid, product_id: pordID, quantity: buyQTY };
+            const cartJSON = JSON.stringify(obj);
+            console.dir(cartJSON);
+            });
+    })();
+});

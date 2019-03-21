@@ -130,3 +130,36 @@ a, a:link, a:hover, a:visited, hr{
     font-weight: bold;
     outline: none;
 }
+
+.main-content table{
+    border: none;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.main-content th{
+    background-color: black;
+    color: whitesmoke;
+    padding: 5px;
+}
+
+#specs-data tr:nth-child(odd){
+    background-color: #EEEEEE;
+}
+
+#specs-data td{
+    padding: 5px 15px;
+}
+
+.main-content form{
+    padding: 5px 0px;
+}
+
+.main-content input{
+    outline: none;
+}
+
+.main-content button{
+    outline: none;
+}

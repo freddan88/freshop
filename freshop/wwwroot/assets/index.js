@@ -10,7 +10,7 @@ fetch('http://localhost:63492/api/products')
         // console.dir(data);
         data.forEach(item => {
 
-let output = `<a href="product.html?pn=${item.pn.toLowerCase()}" class="product-module">
+            let output = `<a href="product.html?pn=${item.pn.toLowerCase()}&id=${item.id}" class="product-module">
                 <img src="./assets/images/${item.img}" alt="${item.model}">
                 <small>${item.pn}</small>
                 <hr width="120"/>
