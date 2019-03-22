@@ -1,5 +1,6 @@
 const pageUrl = document.URL;
 const queryString = pageUrl.split('=')[2];
+
 const specsTable = document.getElementById('specs-data');
 const wantedQTY = document.getElementById('wanted-qty');
 const form = document.forms[0];
@@ -27,7 +28,7 @@ fetch('http://localhost:63492/api/products/'+queryString)
         stock.textContent = json[0].qty
 
         wantedQTY.attributes.max.value = json[0].qty
-        wantedQTY.nextElementSibling.attributes.value.value = json[0].qty
+        wantedQTY.nextElementSibling.attributes.value.value = json[0].id
 
         const specs = json[0].specs.split(",");
         specs.forEach(spec => {
@@ -60,11 +61,12 @@ fetch('http://localhost:63492/api/products/'+queryString)
             
             myGuid = sessionStorage.getItem("freshop-guid");
             const buyQTY = wantedQTY.value;
-            const pordID = productId.value;
+            const prodID = productId.value;
 
-            const obj = { cart_guid: myGuid, product_id: pordID, quantity: buyQTY };
-            const cartJSON = JSON.stringify(obj);
-            console.dir(cartJSON);
+            const obj = { cart_guid: myGuid, product_id: prodID, quantity: buyQTY };
+            const cartItem = JSON.stringify(obj);
+
+            console.dir(cartItem);
             });
     })();
 });
