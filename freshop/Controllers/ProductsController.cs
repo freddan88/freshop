@@ -17,7 +17,6 @@ namespace freshop.Controllers
     [Route("api/[controller]")]
     public class ProductsController : Controller
     {
-
         private readonly ProductsService productsService;
         private readonly string connectionString;
 
@@ -34,15 +33,6 @@ namespace freshop.Controllers
             var products = this.productsService.Get();
             return Ok(products);
         }
-
-        //[HttpGet("{pn}")]
-        //[ProducesResponseType(typeof(Products), StatusCodes.Status200OK)]
-        //[ProducesResponseTypeAttribute(StatusCodes.Status404NotFound)]
-        //public IActionResult Get(string pn)
-        //{
-        //    var resault = this.productsService.Get(pn);
-        //    return Ok(resault);
-        //}
 
         [HttpGet("{key}")]
         [ProducesResponseType(typeof(Products), StatusCodes.Status200OK)]
