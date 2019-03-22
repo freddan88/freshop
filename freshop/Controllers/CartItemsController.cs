@@ -9,7 +9,6 @@ using Microsoft.Extensions.Configuration;
 
 namespace freshop.Controllers
 {
-
     [Route("api/[controller]")]
     public class CartItemsController : Controller
     {
@@ -35,7 +34,6 @@ namespace freshop.Controllers
         [ProducesResponseTypeAttribute(StatusCodes.Status404NotFound)]
         public IActionResult Get(string guid)
         {
-            //var resault = this.cartItemsService.Get(guid);
             var resault = this.cartItemsService.Get(guid);
             return Ok(resault);
         }

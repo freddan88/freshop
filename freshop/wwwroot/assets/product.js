@@ -17,7 +17,6 @@ const countItems = (myGuid) => {
     fetch('http://localhost:63492/api/CartItems/' + myGuid)
         .then(response => response.json())
         .then(json => {
-            // console.log(json)
             cartItems.textContent = json.items;
             cartItems.parentElement.href = 'cart.html?guid=' + json.cart_guid;
         });

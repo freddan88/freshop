@@ -24,16 +24,6 @@ namespace freshop.Repositories
             }
         }
 
-        //public List<CartItems> Get(string guid)
-        //{
-        //    using (SQLiteConnection connection = new SQLiteConnection(this.connectionString))
-        //    {
-        //        return connection.Query<CartItems>("SELECT COUNT(product_id) AS items FROM cart_items WHERE cart_guid = @guid", new { guid }).ToList();
-        //        return connection.Query<CartItems>("SELECT * FROM cart_items WHERE cart_guid = @guid", new { guid }).ToList();
-        //    }
-
-        //}
-
         public CartItems Get(string guid)
         {
             using (SQLiteConnection connection = new SQLiteConnection(this.connectionString))
