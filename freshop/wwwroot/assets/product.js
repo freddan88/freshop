@@ -13,6 +13,16 @@ const price = document.getElementById('price');
 const model = document.getElementById('model');
 const stock = document.getElementById('inStock');
 
+const countItems = (myGuid) => {
+    fetch('http://localhost:63492/api/CartItems/' + myGuid)
+        .then(response => response.json())
+        .then(json => {
+            // console.log(json)
+            cartItems.textContent = json.items;
+            cartItems.parentElement.href = 'cart.html?guid=' + json.cart_guid;
+        });
+}
+
 fetch('http://localhost:63492/api/products/'+queryString)
     .then(response => response.json())
     .then(json => {
@@ -42,38 +52,38 @@ fetch('http://localhost:63492/api/products/'+queryString)
         });
     });
     
-    form.addEventListener('submit', (event) => {
-    event.preventDefault();
+form.addEventListener('submit', (event) => {
+event.preventDefault();
     
-    const wantedQTY = document.getElementById('wanted-qty');
-    const productId = document.getElementById('product_id');
+const wantedQTY = document.getElementById('wanted-qty');
+const productId = document.getElementById('product_id');
     
     (async () => {
-    await fetch('http://localhost:63492/api/myGuid')
+        await fetch('http://localhost:63492/api/myGuid')
         .then(response => response.json())
         .then(json => {
-            let myGuid = json;
-            let hasGuid = sessionStorage.getItem("freshop-guid");
+        let myGuid = json;
+        let hasGuid = localStorage.getItem("freshop-guid");
             
-            if (hasGuid == null) {
-                sessionStorage.setItem("freshop-guid", myGuid);
-            }
+        if (hasGuid == null) {
+            localStorage.setItem("freshop-guid", myGuid);
+        }
             
-            myGuid = sessionStorage.getItem("freshop-guid");
-            const buyQTY = wantedQTY.value;
-            const prodID = productId.value;
+        myGuid = localStorage.getItem("freshop-guid");
 
-            const obj = { cart_guid: myGuid, product_id: prodID, quantity: buyQTY };
-            console.dir(obj);
-
-            fetch('http://localhost:63492/api/CartItems', {
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    method: 'POST',
-                    body: JSON.stringify(obj)
-                }).then(console.log)
-            });
+        const buyQTY = wantedQTY.value;
+        const prodID = productId.value;
+        const obj = { cart_guid: myGuid, product_id: prodID, quantity: buyQTY };
+            
+        fetch('http://localhost:63492/api/CartItems', {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify(obj)
+        }) 
+        .then(response => countItems(myGuid));
+        });
     })();
 });

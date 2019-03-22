@@ -24,14 +24,6 @@ namespace freshop.Repositories
             }
         }
 
-        //public Products Get(string pn)
-        //{
-        //    using (SQLiteConnection connection = new SQLiteConnection(this.connectionString))
-        //    {
-        //        return connection.QuerySingleOrDefault<Products>("SELECT * FROM products WHERE pn = @pn", new { pn });
-        //    }
-        //}
-
         public List<Products> Get(string key)
         {
             using (SQLiteConnection connection = new SQLiteConnection(this.connectionString))

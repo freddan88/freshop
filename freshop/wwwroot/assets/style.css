@@ -18,7 +18,9 @@ a, a:link, a:hover, a:visited, hr{
     padding: 10px;
     text-transform: uppercase;
     font-family: 'Bowlby One SC', cursive;
-    background-color: #E34D3A
+    background-color: #E34D3A;
+    display: flex;
+    justify-content: space-between;
 }
 
 .main-header {

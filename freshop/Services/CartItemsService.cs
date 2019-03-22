@@ -20,14 +20,10 @@ namespace freshop.Services
             return this.cartItemsRepository.Get();
         }
 
-
-        public CartItems Get(int id)
+        // public List<CartItems> Get(string guid)
+        public CartItems Get(string guid)
         {
-            if (id < 1)
-            {
-                return null;
-            }
-            return this.cartItemsRepository.Get(id);
+            return this.cartItemsRepository.Get(guid);
         }
 
         public bool Add(CartItems cartItems)

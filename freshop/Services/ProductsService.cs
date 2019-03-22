@@ -20,11 +20,6 @@ namespace freshop.Services
             return this.productsRepository.Get();
         }
 
-        //public Products Get(string pn)
-        //{
-        //    return this.productsRepository.Get(pn);
-        //}
-
         public List<Products> Get(string key)
         {
             return this.productsRepository.Get(key);

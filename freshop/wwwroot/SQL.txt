@@ -1,0 +1,4 @@
+Cart:
+SELECT product_id, cart_guid, pn, img, model, quantity, price 
+FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id 
+WHERE cart_guid = "f07eec75-df0f-4802-9ea8-7cb360e8ceb2";

@@ -7,7 +7,6 @@ fetch('http://localhost:63492/api/products')
     .then(json => {
     
         const data = json;
-        // console.dir(data);
         data.forEach(item => {
 
             let output = `<a href="product.html?pn=${item.pn.toLowerCase()}&id=${item.id}" class="product-module">

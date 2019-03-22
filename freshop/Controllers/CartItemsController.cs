@@ -30,6 +30,15 @@ namespace freshop.Controllers
             return Ok(this.cartItemsService.Get());
         }
 
+        [HttpGet("{guid}")]
+        [ProducesResponseType(typeof(Products), StatusCodes.Status200OK)]
+        [ProducesResponseTypeAttribute(StatusCodes.Status404NotFound)]
+        public IActionResult Get(string guid)
+        {
+            //var resault = this.cartItemsService.Get(guid);
+            var resault = this.cartItemsService.Get(guid);
+            return Ok(resault);
+        }
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -45,6 +54,5 @@ namespace freshop.Controllers
 
             return Ok();
         }
-
     }
 }
