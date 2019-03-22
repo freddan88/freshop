@@ -64,9 +64,16 @@ fetch('http://localhost:63492/api/products/'+queryString)
             const prodID = productId.value;
 
             const obj = { cart_guid: myGuid, product_id: prodID, quantity: buyQTY };
-            const cartItem = JSON.stringify(obj);
+            console.dir(obj);
 
-            console.dir(cartItem);
+            fetch('http://localhost:63492/api/CartItems', {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    method: 'POST',
+                    body: JSON.stringify(obj)
+                }).then(console.log)
             });
     })();
 });

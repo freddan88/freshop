@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.Net.Http.Headers;
 
 namespace freshop
 {
@@ -30,7 +31,9 @@ namespace freshop
                 options.AddPolicy(MyAllowSpecificOrigins,
                 builder =>
                 {
-                    builder.WithOrigins("http://localhost:8888","http://www.contoso.com");
+                    builder.WithOrigins("http://localhost:8888", "http://www.contoso.com")
+                    .WithHeaders(HeaderNames.ContentType, "application/json")
+                    .AllowAnyMethod();
                 });
             });
             services.AddMvc();
