@@ -30,7 +30,7 @@ namespace freshop.Controllers
         }
 
         [HttpGet("{guid}")]
-        [ProducesResponseType(typeof(Products), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CartItems), StatusCodes.Status200OK)]
         [ProducesResponseTypeAttribute(StatusCodes.Status404NotFound)]
         public IActionResult Get(string guid)
         {
@@ -51,6 +51,14 @@ namespace freshop.Controllers
             }
 
             return Ok();
+        }
+
+        [HttpDelete("{guid}")]
+        [ProducesResponseType(typeof(CartItems), StatusCodes.Status200OK)]
+        [ProducesResponseTypeAttribute(StatusCodes.Status404NotFound)]
+        public void Delete(string guid)
+        {
+
         }
     }
 }

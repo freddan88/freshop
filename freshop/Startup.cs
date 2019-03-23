@@ -31,7 +31,7 @@ namespace freshop
                 options.AddPolicy(MyAllowSpecificOrigins,
                 builder =>
                 {
-                    builder.WithOrigins("http://localhost:8888", "http://www.contoso.com")
+                    builder.WithOrigins("http://localhost:8888", "http://localhost:8000")
                     .WithHeaders(HeaderNames.ContentType, "application/json")
                     .AllowAnyMethod();
                 });

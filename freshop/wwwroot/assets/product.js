@@ -67,12 +67,13 @@ const productId = document.getElementById('product_id');
         if (hasGuid == null) {
             localStorage.setItem("freshop-guid", myGuid);
         }
-            
+
+        const productGuid = myGuid;
         myGuid = localStorage.getItem("freshop-guid");
 
         const buyQTY = wantedQTY.value;
         const prodID = productId.value;
-        const obj = { cart_guid: myGuid, product_id: prodID, quantity: buyQTY };
+            const obj = { cart_guid: myGuid, product_id: prodID, product_guid: productGuid, quantity: buyQTY };
             
         fetch('http://localhost:63492/api/CartItems', {
             headers: {

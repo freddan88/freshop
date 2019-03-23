@@ -2,3 +2,21 @@ Cart:
 SELECT product_id, cart_guid, pn, img, model, quantity, price 
 FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id 
 WHERE cart_guid = "f07eec75-df0f-4802-9ea8-7cb360e8ceb2";
+
+SELECT *, SUM(quantity) AS quantity_total
+FROM cart_items GROUP BY product_id;
+
+Order:
+SELECT product_id, cart_guid, pn, img, model, price, SUM(quantity) AS 'total_quantity'
+FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id 
+WHERE cart_guid = '532975b4-7aa6-42a2-b2ca-c1b5d9a42109' GROUP BY product_id;
+
+SELECT *, SUM(prices) AS total_price FROM (SELECT product_id, cart_guid, pn, img, model, quantity, price, quantity * price AS prices
+FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id 
+WHERE cart_guid = "532975b4-7aa6-42a2-b2ca-c1b5d9a42109") GROUP BY product_id
+
+Använd Nedan för order:
+SELECT product_id, cart_guid, pn, img, model, price, SUM(quantity) AS total_qty, SUM(prices) AS total_price 
+FROM (SELECT product_id, cart_guid, pn, img, model, quantity, price, quantity * price AS prices
+FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id 
+WHERE cart_guid = "532975b4-7aa6-42a2-b2ca-c1b5d9a42109") GROUP BY product_id

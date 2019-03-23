@@ -1,3 +1,5 @@
+/* Global Styling */
+
 body{
     display: grid;
     grid-template-columns: 1fr 940px 1fr;
@@ -53,6 +55,25 @@ a, a:link, a:hover, a:visited, hr{
     align-items: center;
 }
 
+.main-content {
+    grid-area: main-content;
+}
+
+#products{
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 210px;
+    grid-gap: 20px;
+}
+
+.product-module__price, .product-price{
+    color: red;
+    padding-top: 3px;
+}
+
+/* Index Styling */
+
 .main-header ul{
     list-style: none;
     margin: 0;
@@ -65,18 +86,6 @@ a, a:link, a:hover, a:visited, hr{
     display: inline-block;
     padding: 0 20px;
     cursor: pointer;
-}
-
-.main-content {
-    grid-area: main-content;
-}
-
-#products{
-    display: grid;
-    padding: 20px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 210px;
-    grid-gap: 20px;
 }
 
 .product-module{
@@ -92,11 +101,7 @@ a, a:link, a:hover, a:visited, hr{
     display: block;
 }
 
-.product-module__price, .product-price{
-    color: red;
-    padding-top: 3px;
-
-}
+/* Product Styling */
 
 .product-description-section{
     display: flex;
@@ -164,4 +169,19 @@ a, a:link, a:hover, a:visited, hr{
 
 .main-content button{
     outline: none;
+}
+
+/* Cart Styling */
+
+div.cart-item{
+    padding: 10px;
+    height: 140px;
+    background-color: #CCC;
+    display: flex;
+}
+
+.cart-item img{
+    max-width: 120px;
+    height: auto;
+    display: block;
 }
