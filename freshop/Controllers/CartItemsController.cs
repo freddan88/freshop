@@ -55,12 +55,12 @@ namespace freshop.Controllers
             return Ok();
         }
 
-        //[HttpDelete("{guid}")]
-        //[ProducesResponseType(typeof(CartItems), StatusCodes.Status200OK)]
-        //[ProducesResponseTypeAttribute(StatusCodes.Status404NotFound)]
-        //public void Delete(string guid)
-        //{
+        [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(CartItems), StatusCodes.Status200OK)]
+        [ProducesResponseTypeAttribute(StatusCodes.Status404NotFound)]
+        public void Delete(int id)
+        {
 
-        //}
+        }
     }
 }

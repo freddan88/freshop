@@ -20,7 +20,7 @@ namespace freshop.Repositories
         {
             using (SQLiteConnection connection = new SQLiteConnection(this.connectionString))
             {
-                return connection.Query<Orders>("SELECT product_id, product_guid, cart_guid, pn, img, model, quantity, price FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id WHERE cart_guid = @guid", new { guid }).ToList();
+                return connection.Query<Orders>("SELECT cart_items.id, product_id, product_guid, cart_guid, pn, img, model, quantity, price FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id WHERE cart_guid = @guid", new { guid }).ToList();
             }
         }
 
