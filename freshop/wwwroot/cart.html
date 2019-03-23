@@ -18,30 +18,39 @@
     <section class="top-section">
         <strong class="logo">freshop</strong>
         <div>
-            <a href="">(<span id="cart_items">0</span>)<i class="fas fa-shopping-cart"></i></a>
+            <a href="./index.html">Back</a>
         </div>
     </section>
 
     <main class="main-header">
-        <center><h1>My Cart:</h1></center>
+        <center><h1>Products in Cart:</h1></center>
         <hr />
         <br />
+        <section class="cart-items">
+
         <div class="cart-item">
             <img src="./assets/images/2960-plus-24pc-s.jpg" alt="">
-            <div>
+            <ul>
+                <li>Art.Nr:</li>
+                <li>Model:</li>
+                <li>QTY:</li>
+                <li>Price(each):</li>
+            </ul>
+            <button id="delete-cartItem" data-guid="product-guid">X</button>
+        </div>
+
+        <div class="cart-item">
+                <img src="./assets/images/2960-plus-24pc-s.jpg" alt="">
                 <ul>
                     <li>Art.Nr:</li>
                     <li>Model:</li>
                     <li>QTY:</li>
                     <li>Price(each):</li>
                 </ul>
-            </div>
+            <button id="delete-cartItem" data-guid="product-guid">X</button>
         </div>
 
-
-
-
-
-
-
-     </main>
+        </section>
+    </main>
+</body>
+</html>

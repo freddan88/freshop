@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Http;
 using freshop.Models;
 using freshop.Repositories;
 using freshop.Services;
@@ -53,12 +55,12 @@ namespace freshop.Controllers
             return Ok();
         }
 
-        [HttpDelete("{guid}")]
-        [ProducesResponseType(typeof(CartItems), StatusCodes.Status200OK)]
-        [ProducesResponseTypeAttribute(StatusCodes.Status404NotFound)]
-        public void Delete(string guid)
-        {
+        //[HttpDelete("{guid}")]
+        //[ProducesResponseType(typeof(CartItems), StatusCodes.Status200OK)]
+        //[ProducesResponseTypeAttribute(StatusCodes.Status404NotFound)]
+        //public void Delete(string guid)
+        //{
 
-        }
+        //}
     }
 }

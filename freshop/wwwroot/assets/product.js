@@ -25,6 +25,7 @@ const countItems = (myGuid) => {
 fetch('http://localhost:63492/api/products/'+queryString)
     .then(response => response.json())
     .then(json => {
+        console.log(json)
         productImage.attributes.src.value='./assets/images/'+json[0].img
         productDesc.textContent = json[0].desc
         model.textContent = json[0].model

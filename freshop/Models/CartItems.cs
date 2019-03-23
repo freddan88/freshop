@@ -9,5 +9,6 @@ namespace freshop.Models
         public string product_guid { get; set; }
         public int quantity { get; set; }
         public int items { get; set; }
+        public string Status { get; internal set; }
     }
 }
