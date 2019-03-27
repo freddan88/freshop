@@ -15,23 +15,22 @@ using freshop.Repositories;
 namespace freshop.Controllers
 {
     [Route("api/[controller]")]
-    public class OrdersController : Controller
+    public class CartController : Controller
     {
-        private readonly OrdersService ordersService;
-        private readonly string connectionString;
+        private readonly CartService cartService;
 
-        public OrdersController(IConfiguration configuration)
+        public CartController(IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("ConnectionString");
-            this.ordersService = new OrdersService(new OrdersRepository(connectionString));
+            this.cartService = new CartService(new CartRepository(connectionString));
         }
 
         [HttpGet("{guid}")]
-        [ProducesResponseType(typeof(Products), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Cart), StatusCodes.Status200OK)]
         [ProducesResponseTypeAttribute(StatusCodes.Status404NotFound)]
         public IActionResult Get(string guid)
         {
-            var resault = this.ordersService.Get(guid);
+            var resault = this.cartService.Get(guid);
             return Ok(resault);
         }
     }

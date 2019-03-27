@@ -20,3 +20,18 @@ SELECT product_id, cart_guid, pn, img, model, price, SUM(quantity) AS total_qty,
 FROM (SELECT product_id, cart_guid, pn, img, model, quantity, price, quantity * price AS prices
 FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id 
 WHERE cart_guid = "532975b4-7aa6-42a2-b2ca-c1b5d9a42109") GROUP BY product_id
+
+SQL Code for total_order Value:
+SELECT *, SUM(total_price) AS order_value FROM (SELECT product_id, cart_guid, pn, img, model, price, SUM(quantity) AS total_qty, SUM(prices) AS total_price 
+FROM (SELECT product_id, cart_guid, pn, img, model, quantity, price, quantity * price AS prices
+FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id 
+WHERE cart_guid = "532975b4-7aa6-42a2-b2ca-c1b5d9a42109") GROUP BY product_id)
+
+Query order_nr:
+SELECT printf("%08d", id) AS order_nr FROM orders
+
+Query costumer: ?
+SELECT customers.* FROM customers LEFT JOIN cart_items ON customers.cart_guid = cart_items.cart_guid WHERE customers.cart_guid = '532975b4-7aa6-42a2-b2ca-c1b5d9a42100' GROUP BY customers.cart_guid
+
+Look at a single order:
+SELECT pn, brand, category, model, cart_items.quantity, cart_items.cart_guid FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id WHERE cart_guid IN (SELECT cart_guid FROM orders)

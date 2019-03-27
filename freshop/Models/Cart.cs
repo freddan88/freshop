@@ -1,7 +1,7 @@
 ﻿using System;
 namespace freshop.Models
 {
-    public class Orders
+    public class Cart
     {
         public int id { get; set; }
         public int product_id { get; set; }
