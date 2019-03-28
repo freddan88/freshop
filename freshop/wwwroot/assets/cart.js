@@ -2,6 +2,19 @@ const pageUrl = document.URL;
 const queryString = pageUrl.split('=')[1];
 const cartItems = document.querySelector('.cart-items');
 
+
+const deleteItem = (itemId) => {
+    fetch('http://localhost:63492/api/CartItems/' + itemId, {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        method: 'DELETE',
+    })
+    .then(setTimeout(() => location.reload(true), 250));
+}
+
+
 fetch('http://localhost:63492/api/cart/' + queryString)
     .then(response => response.json())
     .then(json => {
@@ -18,9 +31,18 @@ let output = `<div class="cart-item">
                 <li><small>Price(each): $${item.price}</small></li>
             </ul>
 
-            <button id="delete-cartItem" data-guid="${item.product_guid}" data-itemID="${item.id}">X</button>
+            <button class="delete-cartItem" data-guid="${item.product_guid}" data-itemID="${item.id}">X</button>
         </div>`
 
                 cartItems.innerHTML += output;
+            });
+            
+            const CartItems = document.querySelectorAll('.delete-cartItem')
+            CartItems.forEach(item => {
+
+                item.addEventListener('click', () => {
+                    const itemId = item.dataset.itemid;
+                    deleteItem(itemId);
+                });
             });
         });

@@ -36,7 +36,15 @@ namespace freshop.Repositories
         {
             using (var connection = new SQLiteConnection(this.connectionString))
             {
-                connection.Execute("INSERT INTO cart_items (cart_guid, product_id, product_guid, quantity) VALUES (@cart_guid, @product_id, @product_guid, @quantity)", cartItems);
+                connection.Execute("INSERT INTO cart_items (cart_guid, product_id, product_guid, quantity) VALUES (@cart_guid, @product_id, 'product_' || @product_guid, @quantity)", cartItems);
+            }
+        }
+
+        public void Del(int id)
+        {
+            using (var connection = new SQLiteConnection(this.connectionString))
+            {
+                connection.Execute("DELETE FROM cart_items WHERE id = @id", new { id });
             }
         }
     }

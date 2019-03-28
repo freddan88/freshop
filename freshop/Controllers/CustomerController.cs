@@ -12,40 +12,40 @@ using Microsoft.Extensions.Configuration;
 namespace freshop.Controllers
 {
     [Route("api/[controller]")]
-    public class CartItemsController : Controller
+    public class CustomerController : Controller
     {
         private readonly string connectionString;
-        private readonly CartItemsServices cartItemsService;
+        private readonly CustomerServices customerService;
 
-        public CartItemsController(IConfiguration configuration)
+        public CustomerController(IConfiguration configuration)
         {
             this.connectionString = configuration.GetConnectionString("ConnectionString");
-            this.cartItemsService = new CartItemsServices(new CartItemsRepository(connectionString));
+            this.customerService = new CustomerServices(new CustomerRepository(connectionString));
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(List<CartItems>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<Customer>), StatusCodes.Status200OK)]
         public IActionResult Get()
 
         {
-            return Ok(this.cartItemsService.Get());
+            return Ok(this.customerService.Get());
         }
 
         [HttpGet("{guid}")]
-        [ProducesResponseType(typeof(CartItems), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Customer), StatusCodes.Status200OK)]
         [ProducesResponseTypeAttribute(StatusCodes.Status404NotFound)]
         public IActionResult Get(string guid)
         {
-            var resault = this.cartItemsService.Get(guid);
+            var resault = this.customerService.Get(guid);
             return Ok(resault);
         }
 
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Post([FromBody]CartItems cartItems)
+        public IActionResult Post([FromBody]Customer customer)
         {
-            var result = this.cartItemsService.Add(cartItems);
+            var result = this.customerService.Add(customer);
 
             if (!result)
             {
@@ -53,14 +53,6 @@ namespace freshop.Controllers
             }
 
             return Ok();
-        }
-
-        [HttpDelete("{id}")]
-        [ProducesResponseType(typeof(CartItems), StatusCodes.Status200OK)]
-        [ProducesResponseTypeAttribute(StatusCodes.Status404NotFound)]
-        public void Delete(int id)
-        {
-            this.cartItemsService.Del(id);
         }
     }
 }

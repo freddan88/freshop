@@ -34,5 +34,10 @@ namespace freshop.Services
 
             return false;
         }
+
+        public void Del(int id)
+        {
+            this.cartItemsRepository.Del(id);
+        }
     }
 }
