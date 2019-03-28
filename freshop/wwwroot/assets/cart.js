@@ -1,7 +1,5 @@
-const pageUrl = document.URL;
-const queryString = pageUrl.split('=')[1];
+const userGuid = localStorage.getItem("freshop-guid");
 const cartItems = document.querySelector('.cart-items');
-
 
 const deleteItem = (itemId) => {
     fetch('http://localhost:63492/api/CartItems/' + itemId, {
@@ -14,8 +12,7 @@ const deleteItem = (itemId) => {
     .then(setTimeout(() => location.reload(true), 300));
 }
 
-
-fetch('http://localhost:63492/api/cart/' + queryString)
+fetch('http://localhost:63492/api/cart/' + userGuid)
     .then(response => response.json())
     .then(json => {
         
@@ -24,7 +21,7 @@ fetch('http://localhost:63492/api/cart/' + queryString)
         if (typeof json[0] != 'object') {
             cartItems.innerHTML = `<h1 class="col2">You have no items in your shopping cart yet!</h1>`;
         } else {
-            cartItems.innerHTML = `<h3 class="col2"><a href="./customer.html?guid=${queryString}">Review below and click here to continue</a></h3>`;
+            cartItems.innerHTML = `<h3 class="col2"><a href="./customer.html?guid=${userGuid}">Review below and click here to continue</a></h3>`;
 
         cart.forEach(item => {
             
@@ -53,4 +50,4 @@ let output = `<div class="cart-item">
                 });
             });
         }
-        });
+    });

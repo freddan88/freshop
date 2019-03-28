@@ -1,7 +1,6 @@
 const userGuid = localStorage.getItem("freshop-guid");
 const formSection = document.getElementById('customer-form');
 const hiddenInput = document.getElementById('hidden-input');
-localStorage.removeItem('freshop-guid');
 const form = document.forms[0];
 
 const order = (myGuid) => {
@@ -20,6 +19,8 @@ const order = (myGuid) => {
 hiddenInput.value = userGuid;
 form.addEventListener('submit', event => {
     event.preventDefault();
+
+    localStorage.removeItem('freshop-guid');
     const formData = new FormData(form);
     let result = {};
 
