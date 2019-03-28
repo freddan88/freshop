@@ -5,4 +5,4 @@ const confirmSection = document.getElementById('confirmation-section');
 
 yourGuidInfo.textContent = queryString;
 
-confirmSection.innerHTML = "Hello";
+// confirmSection.innerHTML = "Hello";
