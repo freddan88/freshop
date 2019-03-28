@@ -11,15 +11,22 @@ const deleteItem = (itemId) => {
         },
         method: 'DELETE',
     })
-    .then(setTimeout(() => location.reload(true), 250));
+    .then(setTimeout(() => location.reload(true), 300));
 }
 
 
 fetch('http://localhost:63492/api/cart/' + queryString)
     .then(response => response.json())
     .then(json => {
-            const cart = json;
-            cart.forEach(item => {
+        
+        const cart = json;
+
+        if (typeof json[0] != 'object') {
+            cartItems.innerHTML = `<h1 class="col2">You have no items in your shopping cart yet!</h1>`;
+        } else {
+            cartItems.innerHTML = `<h3 class="col2"><a href="./customer.html?guid=${queryString}">Review below and click here to continue</a></h3>`;
+
+        cart.forEach(item => {
             
 let output = `<div class="cart-item">
             <img src="./assets/images/${item.img}" alt="${item.model}">
@@ -45,4 +52,5 @@ let output = `<div class="cart-item">
                     deleteItem(itemId);
                 });
             });
+        }
         });

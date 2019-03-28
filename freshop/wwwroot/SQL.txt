@@ -35,3 +35,9 @@ SELECT customers.* FROM customers LEFT JOIN cart_items ON customers.cart_guid = 
 
 Look at a single order:
 SELECT pn, brand, category, model, cart_items.quantity, cart_items.cart_guid FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id WHERE cart_guid IN (SELECT cart_guid FROM orders)
+
+CREATE TABLE IF NOT EXISTS "orders" (
+	"id"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	"cart_guid"	TEXT NOT NULL UNIQUE,
+	"placed_on"	DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP))
+);

@@ -176,6 +176,7 @@ a, a:link, a:hover, a:visited, hr{
 section.cart-items{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 140px;
     grid-auto-rows: 140px;
     grid-gap: 20px;
 }
@@ -203,4 +204,30 @@ div.cart-item{
     position: absolute;
     outline: none;
     right: 10px;
+}
+
+.cart-items .col2{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    text-align: center;
+}
+
+.cart-items a{
+    margin: 0;
+    color: azure;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Customer Page */
+
+#customer-form form, #customer-form input, #customer-form label{
+    display: flex;
+    flex-direction: column;
+    padding: 6px;
+}
+
+#customer-form button{
+    margin: 50px;
+    padding: 20px;
 }

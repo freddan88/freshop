@@ -73,7 +73,8 @@ const productId = document.getElementById('product_id');
 
         const buyQTY = wantedQTY.value;
         const prodID = productId.value;
-            const obj = { cart_guid: myGuid, product_id: prodID, product_guid: productGuid, quantity: buyQTY };
+        const obj = { cart_guid: myGuid, product_id: prodID, product_guid: productGuid, quantity: buyQTY };
+        console.log(obj)
             
         fetch('http://localhost:63492/api/CartItems', {
             headers: {

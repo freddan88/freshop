@@ -28,7 +28,7 @@ namespace freshop.Repositories
         {
             using (SQLiteConnection connection = new SQLiteConnection(this.connectionString))
             {
-                return connection.QuerySingleOrDefault<Customer>("SELECT id, fname, lname, adress, zip, city, cart_guid, email FROM costumers WHERE cart_guid = @guid", new { guid });
+                return connection.QuerySingleOrDefault<Customer>("SELECT id, fname, lname, adress, zip, city, cart_guid, email FROM customers WHERE cart_guid = @guid", new { guid });
             }
         }
 
@@ -36,7 +36,7 @@ namespace freshop.Repositories
         {
             using (var connection = new SQLiteConnection(this.connectionString))
             {
-                connection.Execute("INSERT INTO cart_items (cart_guid, product_id, product_guid, quantity) VALUES (@cart_guid, @product_id, 'product_' || @product_guid, @quantity)", costumer);
+                connection.Execute("INSERT INTO customers (fname, lname, adress, zip, city, cart_guid, email) VALUES (@fname, @lname, @adress, @zip, @city, @cart_guid, @email)", costumer);
             }
         }
     }
