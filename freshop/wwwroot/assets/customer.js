@@ -5,7 +5,8 @@ const form = document.forms[0];
 
 const order = (myGuid) => {
     const obj = { cart_guid: myGuid };
-    fetch('http://localhost:63492/api/order', {
+    console.log(obj)
+    fetch('http://localhost:63492/api/orders', {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -13,7 +14,7 @@ const order = (myGuid) => {
         method: 'POST',
         body: JSON.stringify(obj)
     })
-    .then(location = "./order.html?guid=" + myGuid);
+    .then(setTimeout(() => location = "./order.html?guid=" + myGuid, 300));
 }
 
 hiddenInput.value = userGuid;
@@ -38,7 +39,7 @@ form.addEventListener('submit', event => {
         method: 'POST',
         body: result
     })
-    .then(response => order(userGuid ))
+    .then(response => order(userGuid))
 });
 
 // console.log(queryString);

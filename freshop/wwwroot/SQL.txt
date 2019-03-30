@@ -41,3 +41,16 @@ CREATE TABLE IF NOT EXISTS "orders" (
 	"cart_guid"	TEXT NOT NULL UNIQUE,
 	"placed_on"	DATETIME DEFAULT (datetime(CURRENT_TIMESTAMP))
 );
+
+-----------
+OrderItems:
+SELECT product_id, cart_guid, pn, img, model, price, SUM(quantity) AS total_qty, SUM(prices) AS total_price 
+FROM (SELECT product_id, cart_guid, pn, img, model, quantity, price, quantity * price AS prices
+FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id 
+WHERE cart_guid = "6bd25774-f3d5-4e32-8ea8-56debb220eeb") GROUP BY product_id
+
+
+OrderValue:
+SELECT SUM(total_price) AS order_value FROM (SELECT products.price * cart_items.quantity AS total_price FROM cart_items LEFT JOIN products ON cart_items.product_id = products.id WHERE cart_items.cart_guid = "6bd25774-f3d5-4e32-8ea8-56debb220eeb")
+
+Order (Visar resultatet från OrderItems, OrderValue, customers och orders)
