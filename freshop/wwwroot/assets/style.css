@@ -231,3 +231,23 @@ div.cart-item{
     margin: 50px;
     padding: 20px;
 }
+
+/* Order Confirmation Page */
+
+.order-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.value-text{
+    color: red;
+}
+
+section table{
+    margin: 0 auto;
+}
+
+section table td, section table th{
+    padding: 10px;
+}

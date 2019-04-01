@@ -26,4 +26,9 @@
   <ItemGroup>
     <None Remove="database_bak.db" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Services\OrdrItemsService.cs" />
+    <Compile Remove="Repositories\CartRepository %28copy%29.cs" />
+    <Compile Remove="Repositories\OderRepository.cs" />
+  </ItemGroup>
 </Project>
