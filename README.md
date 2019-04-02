@@ -25,7 +25,7 @@ _HTML CSS SQL Javascript C# (.net) Markdown <- Readme.md_
 * [x] Filter products on categories
 * [x] List single product
 * [x] Buy product
-* [x] Customerform
+* [x] Customer form
 * [x] Order confirmation page
 
 #### .NET Rest API - httpVerbs and endpoints
