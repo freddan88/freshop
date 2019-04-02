@@ -54,10 +54,10 @@ guid|Generate a random guid|Get|'host'/api/myGuid
 #### Example JSON to use for post
 
 > CartItems:<br/>
-{cart_guid: "0f8c2f2e-6909-4ee6-b28c-3ed826f39c91", product_id: "2", product_guid: "0f8c2f2e-6909-4ee6-b28c-3ed826f39c91", quantity: "1"}
+{cart_guid: "0f8c2f2e-6909-4ee6-b28c-3ed826f39c91", product_id: "2", product_guid: "0f8c2f2e", quantity: "1"}
 
 > Customer:<br/>
-{"id": 23, "fname": "Fredrik", "lname": "Leemann", "adress": "Ex", "zip": "Ex", "city": "GBG", "cart_guid": "0f8c2f2e-6909-4ee6-b28c-3ed826f39c91", "email": "you@ex.se"}
+{"id": 23, "fname": "Fredrik", "lname": "Leemann", "adress": "Example", "zip": "Example", "city": "Gothenburg", "cart_guid": "0f8c2f2e-6909-4ee6-b28c-3ed826f39c91", "email": "fredrik@leemann.se"}
 
 > Orders:<br/>
 {"cart_guid": "0f8c2f2e-6909-4ee6-b28c-3ed826f39c91"}
