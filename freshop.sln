@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "freshop", "freshop\freshop.csproj", "{30FA1921-D9E4-4F20-9DC4-5B7BC7BABB60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "freshop.IntegrationTests", "freshop.IntegrationTests\freshop.IntegrationTests.csproj", "{A5136C26-937A-4CB1-8127-90046EFA475E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{30FA1921-D9E4-4F20-9DC4-5B7BC7BABB60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30FA1921-D9E4-4F20-9DC4-5B7BC7BABB60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30FA1921-D9E4-4F20-9DC4-5B7BC7BABB60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5136C26-937A-4CB1-8127-90046EFA475E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5136C26-937A-4CB1-8127-90046EFA475E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5136C26-937A-4CB1-8127-90046EFA475E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5136C26-937A-4CB1-8127-90046EFA475E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

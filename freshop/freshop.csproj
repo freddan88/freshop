@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <None Remove="database_bak.db" />
+    <None Remove="news.db" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Services\OrdrItemsService.cs" />

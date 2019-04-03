@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using freshop.Models;
+
 namespace freshop.Models
 {
     public class Order
