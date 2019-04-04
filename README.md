@@ -12,7 +12,7 @@ _HTML CSS SQL Javascript C# (.net) Markdown <- Readme.md_
 ---
 
 #### Testers
-- First name Lastname
+- [Fredrik Leemann](https://github.com/freddan88)
 
 #### Used during development
 
