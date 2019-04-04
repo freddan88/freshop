@@ -13,6 +13,7 @@ _HTML CSS SQL Javascript C# (.net) Markdown <- Readme.md_
 
 #### Testers
 - [Fredrik Leemann](https://github.com/freddan88)
+- [Erik Arvidsson](https://github.com/erikarvidsson)
 
 #### Used during development
 
